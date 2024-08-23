@@ -1,6 +1,24 @@
 $(document).ready(function() {
     const initialForm = $('.size').first().clone(true);
 
+    function setUpImagePreview(container) {
+        container.find('.image').on('change', function(event) {
+            const input = event.target;
+            const preview = container.find('.preview');
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.html('<img src="' + e.target.result + '" alt="Image Preview" style="max-width: 100%; max-height: 200px;">');
+                    preview.show();
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.html('').hide();
+            }
+        });
+    }  
+  
     function setUpSaveButton(container) {
         container.find('.save').on('click', function() {
             const id = container.data('id');
@@ -54,11 +72,11 @@ $(document).ready(function() {
         setUpDeleteButton(clone);
         });
 
+        
     }
     $(window).on('load', function() {
         loadFormData();  // ロード時にデータを復元
     });
-
 
     function setUpClearButton(container) {
         container.find('.clear').on('click', function() {
