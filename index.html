@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>夏休みの絵日記</title>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>夏休みの日記</h1>
+    </header>
+
+    <main>
+        <div>
+            <button id="tsuika">日記をついかする</button>
+         </div>
+         <div>
+            <button id="matome">まとめをみる</button>
+         </div>
+        <!-- 絵日記要素/画像入れる、記入、天気、最高気温、日付 -->
+    <div class="ichi" id="form-clone">
+     <div class="size" data-id="0"> 
+        <div class="form-container">
+        <!-- 日付と天気 -->
+         <div class="form-row">
+        <!-- 日付 -->
+        <div class="form-group">
+        <label for="date">日付</label>
+        <input type="date" id="date" class="date"><br>
+        </div>
+        <!-- 天気 -->  
+        <div class="form-group">
+        <label for="weather">お天気</label>
+        <select name="weather" id="weather" class="weather"><br>
+            <option value="hare">☀</option>
+            <option value="kumori">☁</option>
+            <option value="ame">☂</option>
+            <option value="harekumori">☀/☁</option>
+            <option value="hareame">☀/☂</option>
+            <option value="kumoriame">☁/☂</option>
+        </select><br>
+        </div>
+        </div>
+        <!-- 気温と気分 -->
+        <div class="form-row">
+        <!-- 気温 -->
+        <div class="form-group">     
+        <label for="temperature">気温</label>
+        <input type="number" id="temperature" name="temperature" class="temperature" min="20" max="40" step="1">
+        <span class="font">℃</span><br>
+        </div>
+         <!-- 気分 -->
+         <div class="form-group">     
+        <label for="weather">気分</label>
+        <select name="mind" id="mind" class="mind"><br>
+            <option value="2">良い</option>
+            <option value="1">普通</option>
+            <option value="0">悪い</option>
+        </select><br>
+        </div>
+        </div>
+        </div>
+        <!-- 日記 -->
+        <label for="nikki">今日の出来事</label><br>
+        <textarea class="textarea" name="nikki" id="nikki"></textarea>
+        <!-- 写真 -->
+        <label for="gazou">今日の1枚</label><br>
+        <input type="file" name="test" accept="image/*" class="image"><br>
+        <div id="preview" class="preview"></div>
+        <!-- ボタン -->
+        <div class="button-ichi">
+            <button class="save">ほぞん</button>
+            <button class="clear">ぜんぶけす</button>
+            <button class="delete">日記を<br>さくじょ</button>
+        </div>
+     </div>
+    </div>
+
+
+
+    </main>
+
+    <footer><small>夏休みの宿題頑張ろう！</small></footer>
+    <script src="js/sample.js"> </script>
+
+
+</body>
+
+</html>
